@@ -1,6 +1,6 @@
 var express = require('express');
 var bodyParser = require('body-parser');
-var Students = require("./students");
+var University = require("./university");
 //var eventsConfig = require("./config");
 
 var app = express();
@@ -9,31 +9,28 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended:true }));
 var port = process.env.PORT || 3000;
 
-var studManager = new Students();
-//studManager.on(eventsConfig.AllStudents, studManager.displayStudetns);
-//studManager.on(eventsConfig.getStudentsByYear, studManager.displayStudentsByYear);
-//studManager.on(eventsConfig.getStudentById, studManager.displayStudentByID);
+var university = new University();
 
 app.all('*', function(req, res, next) {
-    console.log("successed login");
+    //console.log("successed login");
     req.next();
 });
 
-app.get('/students', function(req, res){
-    console.log("AllStudents");
-    res.send(studManager.displayStudetns());
+app.get('/allstudents', function(req, res){
+    res.send(university.getAllExcellenceStudent());
     res.end();
 });
 
-app.get('/getstudentid/:id', function(req, res){
+app.get('/student/:id', function(req, res){
     var id = req.params.id;
-    res.send(studManager.displayStudentByID(id));
+    res.send(university.ExcellenceStudentByID(id));
     res.end();
 });
 
-app.get('/getstudentyear/:year', function(req, res){
+
+app.get('/studentsyear/:year', function(req, res){
     var year = req.params.year;
-    res.send(studManager.displayStudentsByYear(year));
+    res.send(university.getExcellenceByYear(year));
     res.end();
 });
 
