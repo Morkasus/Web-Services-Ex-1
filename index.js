@@ -1,7 +1,6 @@
 var express = require('express');
 var bodyParser = require('body-parser');
 var University = require("./university");
-//var eventsConfig = require("./config");
 
 var app = express();
 
@@ -12,7 +11,6 @@ var port = process.env.PORT || 3000;
 var university = new University();
 
 app.all('*', function(req, res, next) {
-    //console.log("successed login");
     req.next();
 });
 

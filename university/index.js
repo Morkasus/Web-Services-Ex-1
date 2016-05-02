@@ -1,6 +1,4 @@
 'use strict'
-//var EventEmitter = require("events");
-//var eventConfig = require("../config");
 var fs = require("fs");
 
 //JSON File
@@ -9,9 +7,7 @@ var excellence = 90;
 
 module.exports = class Students {
     
-    constructor() {
-        //super();
-    }
+    constructor() {}
     
     getAllExcellenceStudent() {
         console.log("------ Display All Excellence Students -------");
