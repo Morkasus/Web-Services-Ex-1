@@ -1,9 +1,26 @@
-Student Service
+Excellence Students Web Service
 
 
-1) For get all Excellence Students :
------------------------------------
-http://localhost:3000/allstudents |
------------------------------------
+1) To get all Excellence Students :
+       
+        -----------------------------------
+        http://localhost:3000/allstudents |
+        -----------------------------------
 
-2) 
+
+2) To Student by ID :
+
+        ----------------------------------------
+        http://localhost:3000/student/{id}     |
+        ----------------------------------------
+        
+        * replace {id} with some number (ex: 1, 2 ...)
+        
+        
+3) To get all Excellence Students by Year :
+
+        --------------------------------------------------
+        http://localhost:3000/studentsyear/{year}        |
+        --------------------------------------------------
+        
+        * replace {year} with some number (ex: 2016, 2015, ...)
