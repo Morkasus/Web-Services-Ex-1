@@ -26,15 +26,13 @@ module.exports = class Students {
         console.log("------ Display Student ID = " + id + "-------");
         var content = fs.readFileSync(studentFile);
         var jsonContent = JSON.parse(content);
-        var student, i;
+        var student = [], i;
         for(i=0; i<jsonContent.length; i++) {
             if(jsonContent[i].id == id){
                 console.log(JSON.stringify(jsonContent[i]) + "\n");
                 student = jsonContent[i];
                 break;
-            } else {
-                student = "Student with id " + id + " dosn't exist\n";
-            }
+            } 
         }
         return student;
     }
