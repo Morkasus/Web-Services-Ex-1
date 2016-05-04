@@ -13,9 +13,9 @@ var university = new University();
 
 //All request
 app.all('*', function(req, res, next) {
+    console.log("Success");
     req.next();
 });
-
 
 //Get all excellence students
 app.get('/allstudents', function(req, res){

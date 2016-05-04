@@ -1,23 +1,135 @@
 
-# Project Name
-Excellence Students Web Service
+# Excellence Students Web Service
+This web service manage pool of studetns. it's offers three GET methods:
+Each method return Json object.
+    
+    * [https://ex1-students-morkasus.herokuapp.com/allstudents]
+    
+    * [https://ex1-students-morkasus.herokuapp.com/student/3]
+    
+    * [https://ex1-students-morkasus.herokuapp.com/studentsyear/2016]
+    
 
-## Start Run It
-1. Download ZIP!
-2. Extract it.
-3. In Terminal/CMD go into this folder.
-4. Write: `node index.js`
-5. Now you can use with the listed below :D
 
 ## Usage
-1. To get all Excellence Students: `http://localhost:3000/allstudents`
+1. To get all Excellence Students: `https://ex1-students-morkasus.herokuapp.com/allstudents`
 
-2. To Student by ID: `http://localhost:3000/student/{id}`
+JSON response example:
+```
+[
+    {
+        firstName: "John",
+        lastName: "Doe",
+        id: 3,
+        avarage: "92",
+        year: "2013"
+    },
+    {
+        firstName: "Anna",
+        lastName: "Smith",
+        id: 4,
+        average: "100",
+        year: "2014"
+    },
+    {
+        firstName: "Mor",
+        lastName: "Kasus",
+        id: 1,
+        average: "100",
+        year: "2016"
+    },
+    {
+        firstName: "Yossi",
+        lastName: "Azo",
+        id: 7,
+        average: "98",
+        year: "2016"
+    },
+    {
+        firstName: "Daniel",
+        lastName: "sha",
+        id: 8,
+        average: "94",
+        year: "2013"
+    },
+    {
+        firstName: "Maria",
+        lastName: "lala",
+        id: 9,
+        average: "100",
+        year: "2014"
+    },
+    {
+        firstName: "Dani",
+        lastName: "dan",
+        id: 10,
+        average: "98",
+        year: "2016"
+    },
+    {
+        firstName: "Salah",
+        lastName: "Moalem",
+        id: 11,
+        average: "92",
+        year: "2016"
+    }
+]
+```
+
+2. To Student by ID: `https://ex1-students-morkasus.herokuapp.com/student/{id}`
+
     * Replace {id} with some number (ex: 1, 2 ...)
     
-3. To get all Excellence Students by Year: `http://localhost:3000/studentsyear/{year}`
-    * Replace {year} with some number (ex: 2016, 2015, ...)
+JSON response example:
+```
+{
+    firstName: "John",
+    lastName: "Doe",
+    id: 3,
+    avarage: "92",
+    year: "2013"
+}
+```
     
-## Credits
+    
+3. To get all Excellence Students by Year: `https://ex1-students-morkasus.herokuapp.com/studentsyear/{year}`
+
+    * Replace {year} with some number (ex: 2016, 2015, ...)
+
+JSON response example:
+```
+[
+    {
+        firstName: "Mor",
+        lastName: "Kasus",
+        id: 1,
+        average: "100",
+        year: "2016"
+    },
+    {
+        firstName: "Yossi",
+        lastName: "Azo",
+        id: 7,
+        average: "98",
+        year: "2016"
+    },
+    {
+        firstName: "Dani",
+        lastName: "dan",
+        id: 10,
+        average: "98",
+        year: "2016"
+    },
+    {
+        firstName: "Salah",
+        lastName: "Moalem",
+        id: 11,
+        average: "92",
+        year: "2016"
+    }
+]
+```
+
+## Author
 Mor Kasus
 
