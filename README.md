@@ -3,11 +3,11 @@
 This web service manage pool of studetns. it's offers three GET methods:
 Each method return Json object.
     
-    [Get all excellence Students](https://ex1-students-morkasus.herokuapp.com/allstudents)
+*[Get all excellence Students](https://ex1-students-morkasus.herokuapp.com/allstudents)
     
-    [Get Student By ID (3)](https://ex1-students-morkasus.herokuapp.com/student/3)
+*[Get Student By ID (3)](https://ex1-students-morkasus.herokuapp.com/student/3)
     
-    [Get Student By Year (2016)](https://ex1-students-morkasus.herokuapp.com/studentsyear/2016)
+*[Get Student By Year (2016)](https://ex1-students-morkasus.herokuapp.com/studentsyear/2016)
     
 
 
@@ -82,7 +82,7 @@ JSON response example:
 
 `https://ex1-students-morkasus.herokuapp.com/student/{id}`
 
-    Replace {id} with some number (ex: 1, 2 ...)
+Replace {id} with some number (ex: 1, 2 ...)
     
 JSON response example:
 ```
@@ -100,7 +100,7 @@ JSON response example:
 
 `https://ex1-students-morkasus.herokuapp.com/studentsyear/{year}`
 
-    * Replace {year} with some number (ex: 2016, 2015, ...)
+Replace {year} with some number (ex: 2016, 2015, ...)
 
 JSON response example:
 ```
