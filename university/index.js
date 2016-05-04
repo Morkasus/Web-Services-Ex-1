@@ -1,10 +1,5 @@
 'use strict'
 var fs = require("fs");
-var mongoose = require('mongoose');
-var Student = require('./student.js');
-mongoose.connect('mongodb://db_usr:db_pass@ds023550.mlab.com:23550/db_ringapp2016mor');
-
-
 
 //JSON File
 var studentFile = "./university/data/studentJson.json";
