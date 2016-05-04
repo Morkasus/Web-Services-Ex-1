@@ -19,19 +19,6 @@ module.exports = class Students {
     //Return Json object with all excellence students
     getAllExcellenceStudent() {
         console.log("------ Display All Excellence Students -------");
-//        var students = [];
-//        //console.log(Student);
-//        mongoose.connection.once('open', function() {
-//            console.log(Student);
-//            Student.find({}, function(err, student) {
-//                console.log("find");
-//                if (err) throw err;
-//                students = student;
-//                console.log(student);
-//                mongoose.disconnect();
-//            });
-//        });
-        
         var students = this.readJson(), i;
         for(i=0; i < students.length; i++) {
             if(students[i].average < excellence){
