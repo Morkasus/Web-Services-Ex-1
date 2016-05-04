@@ -3,16 +3,16 @@
 This web service manage pool of studetns. it's offers three GET methods:
 Each method return Json object.
     
-*[Get all excellence Students](https://ex1-students-morkasus.herokuapp.com/allstudents)
+[Get all excellence Students](https://ex1-students-morkasus.herokuapp.com/allstudents)
     
-*[Get Student By ID (3)](https://ex1-students-morkasus.herokuapp.com/student/3)
+[Get Student By ID (3)](https://ex1-students-morkasus.herokuapp.com/student/3)
     
-*[Get Student By Year (2016)](https://ex1-students-morkasus.herokuapp.com/studentsyear/2016)
+[Get Student By Year (2016)](https://ex1-students-morkasus.herokuapp.com/studentsyear/2016)
     
 
 
 ## Usage
-### To get all Excellence Students: 
+### To get all excellence students: 
 
 `https://ex1-students-morkasus.herokuapp.com/allstudents`
 
@@ -78,7 +78,7 @@ JSON response example:
 ]
 ```
 
-### To Student by ID: 
+### To get student by ID: 
 
 `https://ex1-students-morkasus.herokuapp.com/student/{id}`
 
@@ -96,7 +96,7 @@ JSON response example:
 ```
     
     
-### To get all Excellence Students by Year: 
+### To get all excellence students by Year: 
 
 `https://ex1-students-morkasus.herokuapp.com/studentsyear/{year}`
 

@@ -1,18 +1,38 @@
 'use strict'
 var fs = require("fs");
+var mongoose = require('mongoose');
+var Student = require('./student.js');
+mongoose.connect('mongodb://db_usr:db_pass@ds023550.mlab.com:23550/db_ringapp2016mor');
+
+
 
 //JSON File
 var studentFile = "./university/data/studentJson.json";
 var excellence = 90;
 
+
+//Class Students
 module.exports = class Students {
     
     constructor() {}
     
+    //Return Json object with all excellence students
     getAllExcellenceStudent() {
         console.log("------ Display All Excellence Students -------");
-        var content = fs.readFileSync(studentFile);
-        var students = JSON.parse(content), i;
+//        var students = [];
+//        //console.log(Student);
+//        mongoose.connection.once('open', function() {
+//            console.log(Student);
+//            Student.find({}, function(err, student) {
+//                console.log("find");
+//                if (err) throw err;
+//                students = student;
+//                console.log(student);
+//                mongoose.disconnect();
+//            });
+//        });
+        
+        var students = this.readJson(), i;
         for(i=0; i < students.length; i++) {
             if(students[i].average < excellence){
                 students.splice(i--,1);
@@ -22,10 +42,11 @@ module.exports = class Students {
         return students;
     }
     
+    
+    //Return Json object contain student with requested id
     ExcellenceStudentByID(id){
         console.log("------ Display Student ID = " + id + "-------");
-        var content = fs.readFileSync(studentFile);
-        var jsonContent = JSON.parse(content);
+        var jsonContent = this.readJson();
         var student = [], i;
         for(i=0; i<jsonContent.length; i++) {
             if(jsonContent[i].id == id){
@@ -37,10 +58,10 @@ module.exports = class Students {
         return student;
     }
     
+    //Return Json object contain all excellence students in requested year
     getExcellenceByYear(year){
         console.log("------- Display All Excellence Students in " + year + " -------");
-        var content = fs.readFileSync(studentFile);
-        var students = JSON.parse(content), i;
+        var students = this.readJson(), i;
         for(i=0; i < students.length; i++) {
             if(students[i].year != year || students[i].average < excellence){
                 students.splice(i--,1);
@@ -48,5 +69,11 @@ module.exports = class Students {
         }
         console.log(JSON.stringify(students) + "\n");
         return students;
+    }
+
+    //Helper method read Json that contain all students
+    readJson(){
+        var content = fs.readFileSync(studentFile);
+        return JSON.parse(content);
     }
 }
