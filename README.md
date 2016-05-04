@@ -12,9 +12,9 @@ Each method return Json object.
 
 
 ## Usage
-# To get all Excellence Students: 
+### To get all Excellence Students: 
 
-```https://ex1-students-morkasus.herokuapp.com/allstudents```
+`https://ex1-students-morkasus.herokuapp.com/allstudents`
 
 JSON response example:
 ```
@@ -78,9 +78,9 @@ JSON response example:
 ]
 ```
 
-# To Student by ID: 
+### To Student by ID: 
 
-```https://ex1-students-morkasus.herokuapp.com/student/{id}```
+`https://ex1-students-morkasus.herokuapp.com/student/{id}`
 
     * Replace {id} with some number (ex: 1, 2 ...)
     
@@ -96,9 +96,9 @@ JSON response example:
 ```
     
     
-3. To get all Excellence Students by Year: 
+### To get all Excellence Students by Year: 
 
-```https://ex1-students-morkasus.herokuapp.com/studentsyear/{year}```
+`https://ex1-students-morkasus.herokuapp.com/studentsyear/{year}`
 
     * Replace {year} with some number (ex: 2016, 2015, ...)
 
