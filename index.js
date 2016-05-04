@@ -1,11 +1,7 @@
 var express = require('express');
-var bodyParser = require('body-parser');
 var University = require("./university");
 
 var app = express();
-
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended:true }));
 var port = process.env.PORT || 3000;
 
 //New university (student manager)
