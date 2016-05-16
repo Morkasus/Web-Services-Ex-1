@@ -1,9 +1,23 @@
 'use strict'
 var fs = require("fs");
 
+//DB Connection
+var mongoose = require('mongoose');
+var Student = require('./student.js');
+mongoose.connect('mongodb://db_usr:db_pass@ds023550.mlab.com:23550/db_ringapp2016mor');
+
 //JSON File
 var studentFile = "./university/data/studentJson.json";
 var excellence = 90;
+var con  = mongoose.connection;
+
+con.on('error', function(err){
+    console.log("Connection failed" + err);
+});
+
+con.once('open', function(){
+    console.log('Connected to mLab');
+});
 
 
 //Class Students
@@ -12,45 +26,45 @@ module.exports = class Students {
     constructor() {}
     
     //Return Json object with all excellence students
-    getAllExcellenceStudent() {
+    getAllExcellenceStudent(callBackFunction) {
         console.log("------ Display All Excellence Students -------");
-        var students = this.readJson(), i;
-        for(i=0; i < students.length; i++) {
-            if(students[i].average < excellence){
-                students.splice(i--,1);
-            }
+        if(con.readyState){
+            Student.find({}, {'_id': false})
+                .where('average').gt(90).exec(function(err, students) {
+                    if (err) throw err;
+                    console.log(students);
+                    callBackFunction(students);
+                    mongoose.disconnect();
+            });
         }
-        console.log(JSON.stringify(students) + "\n");
-        return students;
     }
     
     
     //Return Json object contain student with requested id
-    ExcellenceStudentByID(id){
+    ExcellenceStudentByID(id, callBackFunction){
         console.log("------ Display Student ID = " + id + "-------");
-        var jsonContent = this.readJson();
-        var student = [], i;
-        for(i=0; i<jsonContent.length; i++) {
-            if(jsonContent[i].id == id){
-                console.log(JSON.stringify(jsonContent[i]) + "\n");
-                student = jsonContent[i];
-                break;
-            } 
+        if(con.readyState){
+            Student.find({"id" : id}, {'_id': false}, function(err, student) {
+                    if (err) throw err;
+                    console.log(student);
+                    callBackFunction(student);
+                    mongoose.disconnect();
+            });
         }
-        return student;
     }
     
     //Return Json object contain all excellence students in requested year
-    getExcellenceByYear(year){
+    getExcellenceByYear(year, callBackFunction){
         console.log("------- Display All Excellence Students in " + year + " -------");
-        var students = this.readJson(), i;
-        for(i=0; i < students.length; i++) {
-            if(students[i].year != year || students[i].average < excellence){
-                students.splice(i--,1);
-            }
+        if(con.readyState){
+            Student.find({"year" : year}, {'_id': false})
+                .where('average').gt(90).exec(function(err, students) {
+                    if (err) throw err;
+                    console.log(students);
+                    callBackFunction(students);
+                    mongoose.disconnect();
+            });
         }
-        console.log(JSON.stringify(students) + "\n");
-        return students;
     }
 
     //Helper method read Json that contain all students
@@ -59,3 +73,6 @@ module.exports = class Students {
         return JSON.parse(content);
     }
 }
+
+
+
