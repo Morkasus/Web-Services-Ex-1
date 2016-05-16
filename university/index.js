@@ -34,7 +34,7 @@ module.exports = class Students {
                     if (err) throw err;
                     console.log(students);
                     callBackFunction(students);
-                    mongoose.disconnect();
+                    //mongoose.disconnect();
             });
         }
     }
@@ -48,7 +48,7 @@ module.exports = class Students {
                     if (err) throw err;
                     console.log(student);
                     callBackFunction(student);
-                    mongoose.disconnect();
+                    //mongoose.disconnect();
             });
         }
     }
@@ -62,7 +62,7 @@ module.exports = class Students {
                     if (err) throw err;
                     console.log(students);
                     callBackFunction(students);
-                    mongoose.disconnect();
+                    //mongoose.disconnect();
             });
         }
     }
